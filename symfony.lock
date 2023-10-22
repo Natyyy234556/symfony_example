@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "doctrine/doctrine-bundle": {
         "version": "2.10",
         "recipe": {
@@ -51,8 +50,6 @@
             "config/packages/nelmio_cors.yaml"
         ]
     },
-=======
->>>>>>> c727633 (Add initial set of files)
     "symfony/console": {
         "version": "6.3",
         "recipe": {
@@ -96,7 +93,6 @@
             "src/Kernel.php"
         ]
     },
-<<<<<<< HEAD
     "symfony/maker-bundle": {
         "version": "1.51",
         "recipe": {
@@ -106,8 +102,6 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
-=======
->>>>>>> c727633 (Add initial set of files)
     "symfony/routing": {
         "version": "6.3",
         "recipe": {
@@ -120,7 +114,6 @@
             "config/packages/routing.yaml",
             "config/routes.yaml"
         ]
-<<<<<<< HEAD
     },
     "symfony/security-bundle": {
         "version": "6.3",
@@ -133,7 +126,5 @@
         "files": [
             "config/packages/security.yaml"
         ]
-=======
->>>>>>> c727633 (Add initial set of files)
     }
 }
