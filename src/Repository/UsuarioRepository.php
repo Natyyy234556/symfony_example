@@ -38,6 +38,13 @@ class UsuarioRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findNombreConA(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere(str_starts_with('u.nombre', 'a'))
+            ->getQuery()
+            ->getResult();
+    }
 
     public function __construct(ManagerRegistry $registry)
     {

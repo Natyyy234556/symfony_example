@@ -80,7 +80,20 @@ class UsuarioController extends AbstractController
     return $this->json(['data' => $data, 'total' => $total, 'lastPage'=> $lastPage] ); 
   }
 
- 
+  #[Route('/mayores_a_35', name: 'app_usuario_read_all_older_than_35', methods: ['GET'])]
+  public function readAllNombreConA(EntityManagerInterface $entityManager, Request $request, GeneradorDeMensajes $generadorDeMensajes): JsonResponse
+  {
+    $usuarios = $entityManager->getRepository(Usuario::class)->findNombreConA();
+    $data = [];
+    foreach ($usuarios as $usuario) {
+      $data[] = [
+        'id' => $usuario->getId(),
+        'nombre' => $usuario->getNombre(),
+        'edad' => $usuario
+      ];
+    }
+    return $this->json(['message' => $generadorDeMensajes->getMensaje(0),'data' => $data]);
+  }
 
   #[Route('/{id}', name: 'app_usuario_read_one', methods: ['GET'])]
   public function readOne(EntityManagerInterface $entityManager, int $id): JsonResponse
