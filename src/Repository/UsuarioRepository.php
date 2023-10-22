@@ -16,6 +16,29 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class UsuarioRepository extends ServiceEntityRepository
 {
+    public function findAllWithPagination(int $currentPage, int $limit): Paginator
+    {
+      // Creamos nuestra query
+      $query = $this->createQueryBuilder('p')
+      ->getQuery();
+
+      // Creamos un paginator con la funcion paginate
+      $paginator = Functions::paginate($query, $currentPage, $limit);
+
+      return $paginator;
+    }
+
+
+    public function findUsuariosMayoresDe35(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.edad > 35')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Usuario::class);
